@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema(
       max: 255,
     },
   },
-  { collection: "users" }
+  { collection: 'users' }
 );
 
-module.exports = mongoose.model("users", userSchema);
+module.exports = mongoose.model('users', userSchema);

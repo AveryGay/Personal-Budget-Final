@@ -23,20 +23,21 @@ function App() {
       <Homepage/>
       <div className="mainContainer">
         <Switch>
-          <Route path="/Dashboard">
+          <Route path="/dashboard">
             <Dashboard/>
           </Route>
-          <Route path="/Login">
+          <Route path="/login">
             <Login/>
           </Route>
-          <Route path="/Logout">
+          <Route path="/logout">
             <Logout/>
           </Route>
-          <Route path="/Signup">
+          <Route path="/signup">
             <Signup/>
           </Route>
         </Switch>
       </div>
+      <hr></hr>
       <Footer/>
     </Router>
   );

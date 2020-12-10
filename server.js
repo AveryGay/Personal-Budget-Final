@@ -15,7 +15,7 @@ app.use(cors());
 app.use('/', express.static('public'));
 
 
-app.post('/Signup', (req, res) => {
+app.post('/signup', (req, res) => {
     mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true})
             .then(() => {
                 var newUser = {

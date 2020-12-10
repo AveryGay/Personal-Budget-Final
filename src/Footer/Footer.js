@@ -2,8 +2,8 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div>
-        <p>This is my footer</p>
+    <div className="footer">
+        <p>Individual work created by Avery Gay &#169;</p>
     </div>
   );
 }
