@@ -19,7 +19,8 @@ function Signup() {
   };
 
   const whenClick = (props) => {
-    axios.post("http:localhost:3000/Signup", { email, password }).then((res) => {
+    //props.preventDefault();
+    axios.post("http:localhost:3000/signup", { email, password }).then((res) => {
       memory.push("/Login");
     })
     .catch((error) => {

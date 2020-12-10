@@ -25,6 +25,7 @@ app.post('/signup', (req, res) => {
                 usersModel.insertMany(newUser)
                     .then((data) => {
                         console.log("Added");
+                        res.send('Added');
                         res.json(data);
                         mongoose.connection.close()
                     })
