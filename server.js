@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const bodyParser= require('body-parser');
 const app = express();
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
+const exjwt = require("express-jwt");
 const port = 4000;
 const usersModel = require('./models/usersSchema');
 
@@ -13,6 +15,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/', express.static('public'));
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4000');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
+    next();
+});
+
+const secretKey = 'My super secret key';
+const jwtMW = exjwt({
+    secret: secretKey,
+    algorithms: ['HS256']
+});
 
 
 app.post('/signup', (req, res) => {
