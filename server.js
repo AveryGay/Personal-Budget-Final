@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser= require('body-parser');
 const app = express();
 const cors = require("cors");
-const port = 3000;
+const port = 4000;
 const usersModel = require('./models/usersSchema');
 
 let url = 'mongodb://localhost:27017/FinalProjectPB';
@@ -18,24 +18,23 @@ app.use('/', express.static('public'));
 app.post('/signup', (req, res) => {
     mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true})
             .then(() => {
-                var newUser = {
+                //var newUser = {
+                    //email: req.body.email,
+                    //password: req.body.password,
+                //};
+                let newUser = new usersModel ({
                     email: req.body.email,
                     password: req.body.password,
-                };
-                usersModel.insertMany(newUser)
-                    .then((data) => {
-                        console.log("Added");
-                        res.send('Added');
-                        res.json(data);
-                        mongoose.connection.close()
-                    })
-                    .catch((operr) =>{
-                        console.log(operr);
-                    });
-            })
-            .catch((operr) =>{
-                console.log(operr);
+                }).save(function(err, data){
+                    if(err){
+                        res.send('Signed Up Failed')
+                    }
+                    else{
+                        res.send('Signed Up Successful')
+                    }
+                })
             });
+                
 });
 
 app.get('/hello', (req, res) => {

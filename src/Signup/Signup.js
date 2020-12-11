@@ -10,18 +10,20 @@ function Signup() {
   const [password, newPassword] = useState({});
   const memory = useHistory();
 
-  const pushEmail = (props) => {
-    newEmail(props.target.value);
+  const pushEmail = (event) => {
+    newEmail(event.target.value);
   };
 
-  const pushPassword = (props) => {
-    newPassword(props.target.value);
+  const pushPassword = (event) => {
+    newPassword(event.target.value);
   };
 
-  const whenClick = (props) => {
-    //props.preventDefault();
-    axios.post("http:localhost:3000/signup", { email, password }).then((res) => {
-      memory.push("/Login");
+  const whenClick = (event) => {
+    event.preventDefault(event);
+    console.log(email);
+    console.log(password);
+    axios.post("http://localhost:4000/signup", { email, password }).then((res) => {
+      //memory.push("/Login");
     })
     .catch((error) => {
       console.log(error);
