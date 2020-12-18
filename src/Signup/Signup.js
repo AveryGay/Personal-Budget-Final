@@ -8,7 +8,6 @@ function Signup() {
 
   const [email, newEmail] = useState({});
   const [password, newPassword] = useState({});
-  const memory = useHistory();
 
   const pushEmail = (event) => {
     newEmail(event.target.value);
@@ -23,7 +22,7 @@ function Signup() {
     console.log(email);
     console.log(password);
     axios.post("http://localhost:4000/signup", { email, password }).then((res) => {
-      //memory.push("/Login");
+    document.getElementById('form1').value='';
     })
     .catch((error) => {
       console.log(error);
@@ -34,7 +33,7 @@ function Signup() {
     <div>
         <h1>If you do not have an account feel free to sign up below!</h1>
 
-        <form onSubmit={whenClick}>
+        <form onSubmit={whenClick} id="form1">
           <div>
             <label htmlFor="email">Email:</label>
             <input type="email" onChange={pushEmail}></input>
