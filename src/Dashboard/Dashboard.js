@@ -3,7 +3,7 @@ import React from 'react';
 function Dashboard() {
   return (
     <div>
-        Dashboard
+        Unable to figure out the dashboard page.
     </div>
   );
 }
